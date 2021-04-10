@@ -12,6 +12,7 @@
         <module>spring1_helloworld</module>
         <module>spring2_caltool</module>
         <module>spring3_myspringframework</module>
+        <module>spring4_aop</module>
     </modules>
 
     <properties>
@@ -26,15 +27,7 @@
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
+
     </dependencies>
 
     <!--spring依赖-->
