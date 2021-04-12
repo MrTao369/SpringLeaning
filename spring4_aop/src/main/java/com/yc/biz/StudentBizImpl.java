@@ -1,10 +1,9 @@
 package com.yc.biz;
 
 import com.yc.dao.StudentDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Random;
 
 /**
@@ -25,8 +24,9 @@ public class StudentBizImpl implements StudentBiz {
 
     }
 
-    @Autowired
-    @Qualifier("studentDaoJpaImpl")//因为有多个对象可以注入，所以这里必须用@Name(studentDaoJpaImpl)
+    //    @Autowired
+//    @Qualifier("studentDaoJpaImpl")//因为有多个对象可以注入，所以这里必须用@Name(studentDaoJpaImpl)
+    @Resource(name = "studentDaoJpaImpl")
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;
     }

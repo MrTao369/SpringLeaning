@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(classes = MyAppConfig.class)
 public class StudentBizImplTest {
 
-    @Autowired
+    @Autowired  //按类型注入,如有多个同类托管bean则报错 ,要不就
     private StudentBiz sbi;
 
     @Test

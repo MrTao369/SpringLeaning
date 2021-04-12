@@ -1,9 +1,11 @@
 package com.yc.aspect;
 
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -17,7 +19,20 @@ import java.util.Date;
  */
 @Aspect
 @Component  //实现让spring托管功能
+@Order(value = 100)
 public class LogAspect {
+
+    @Around("execution(* com.yc.biz.StudentBizImpl.find*(..))")
+    public Object computer(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("=========================computer  进到  增强了...");
+        long start = System.currentTimeMillis();
+        Object retVal = pjp.proceed();
+        long end = System.currentTimeMillis();
+        System.out.println("computer 要退出增强了.......");
+        System.out.println("============================这个方法运行的时长为：" + (end - start));
+        return retVal;
+    }
+
     //切入点声明
     @Pointcut("execution(* com.yc.biz.StudentBizImpl.add*(..))") //切入点表达式：哪些方法上加增强
     private void add() {
@@ -33,7 +48,7 @@ public class LogAspect {
 
 
     //增强声明
-    @Before("com.yc.aspect.LogAspect.addAndUpdate()")
+    //@Before("com.yc.aspect.LogAspect.addAndUpdate()")
     public void log() {
         System.out.println("=================前置增强日志==================");
         Date d = new Date();
