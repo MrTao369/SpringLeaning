@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+logging:
+  level:
+    root: error
+    com.yc: debug
+    org.springframework: error
+
+  file:
+    path: ./logs
+    name: yc.log
+
+yc:
+  name: 李四
+  age: 22

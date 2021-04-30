@@ -1,0 +1,16 @@
+server:
+  port: 9999
+
+logging:
+  level:
+    root: error
+    com.yc: debug
+    org.springframework: error
+
+  file:
+    path: ./logs
+    name: yc.log
+
+yc:
+  name: 王五
+  age: 22

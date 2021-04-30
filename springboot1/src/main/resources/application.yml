@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: error
+    com.yc: debug
+    org.springframework: error
+
+  file:
+    path: ./logs
+    name: yc.log
+
+yc:
+  name: 张三
+  age: 12
